@@ -8,7 +8,7 @@ var  y,c,ce,m,k,i, s, pi,x,b,a, tec_shock, pref_shock, inf_shock, beta_t,r;
 varexo eps_a, eps_beta, eps_pi;
 
 parameters beta, gamma, sigma, omega, psi, chi, delta, alpha, eta_c, 
-      eta_r, phi_s, phi_y, phi_pi, X, LV,rp,rho_a, rho_beta, s_ss,rr_ss;
+      eta_r, phi_s, phi_y, phi_pi, X, LV,rp,rho_a, rho_beta;
 
 beta  = 0.99; //Discount factor
 gamma = 0.98; //Discount factor of entrepreneurs
@@ -40,8 +40,6 @@ rp = 1.005; //Constant risk premium
 rho_a = 0.90; // Autocorrelation of technology shock
 rho_beta = 0.80 ; //Autocorrelation of preference shock
 
-s_ss = 1/(beta*rp);
-rr_ss = 1/beta;
 
 model;
 %Most of the steady-state parameters depend of each other, and as all are relative to Output, that variable is omitted.
@@ -117,8 +115,5 @@ end;
 
 
 perfect_foresight_setup(periods=40);
-
-
 perfect_foresight_solver;
 
-rplot s;
